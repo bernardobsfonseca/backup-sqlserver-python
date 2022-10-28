@@ -1,9 +1,9 @@
 import pyodbc
 
-server = 'Your server'
-database = 'Your database'
-username = 'Your username'
-password = 'Your password'
+server = 'your_server'
+database = 'your_database'
+username = 'your_username'
+password = 'your_password'
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+
                       ';DATABASE=MASTER;UID='+username+';PWD='+password)
 cnxn.autocommit = True
@@ -16,8 +16,8 @@ def execute(cmd):
     cursor.close()
 
 print('backing up...')
-directory = 'Your path'
-arq = f'name_arquive.bak'
-execute(f"BACKUP DATABASE [{database}] TO DISK = '{directory}{arq}'")
+path = 'your_path'
+file = 'file_name.bak'
+execute(f"BACKUP DATABASE [{database}] TO DISK = '{path}{file}'")
 cnxn.close()
 print('done')
